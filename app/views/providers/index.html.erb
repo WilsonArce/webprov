@@ -1,0 +1,144 @@
+<!--p id="notice"><%= notice %></p-->
+<div class="col col-centered container">
+  <div class="row">
+      <div class="col-lg-12">
+          <h1 class="page-header">
+              Proveedores <small>Transacciones</small>
+          </h1>
+          <ol class="breadcrumb">
+              <li class="active">
+              </li>
+          </ol>
+      </div>
+  </div>
+
+  <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-comments fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">Últimos pedidos</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/">
+                    <div class="panel-footer">
+                        <span class="pull-left">Ver detalles</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-comments fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">Destacados</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/">
+                    <div class="panel-footer">
+                        <span class="pull-left">Ver detalles</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-comments fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">Pendientes</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/">
+                    <div class="panel-footer">
+                        <span class="pull-left">Ver detalles</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-comments fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">Devoluciones</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/">
+                    <div class="panel-footer">
+                        <span class="pull-left">Ver detalles</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <ol class="breadcrumb">
+      <li class="active">
+        <h2>Lista de proveedores</h2>
+        <%= link_to 'Nuevo proveedor', new_provider_path %>
+      </li>
+    </ol>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Categoria</th>
+          <th>Email</th>
+          <th>Direccion</th>
+          <th>Telefono</th>
+          <th>Calificacion</th>
+          <th>Nuevo pedido</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @providers.each do |provider| %>
+          <tr>
+            <td><%= provider.nombre %></td>
+            <td><%= provider.categoria %></td>
+            <td><%= provider.email %></td>
+            <td><%= provider.direccion %></td>
+            <td><%= provider.telefono %></td>
+            <td><%= provider.calificacion %></td>
+            <td><%= button_to "Hacer pedido", {:controller => "providers", :action => "mail", :method=>:post , :id => current_user.id}, :class => 'btn btn-xs btn-primary' %></td>
+            <td><%= link_to 'Ver', provider %></td>
+            <td><%= link_to 'Editar', edit_provider_path(provider) %></td>
+            <td><%= link_to 'Eliminar', provider, method: :delete, data: { confirm: 'Está seguro?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <br>
+</div>
+
+

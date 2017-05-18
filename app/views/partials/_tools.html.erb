@@ -1,0 +1,41 @@
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-top: 50px">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle glyphicon glyphicon-option-vertical" data-toggle="collapse" data-target="#myNavbar2">                        
+          </button>
+          <a class="navbar-brand" style="font-size: 25px;">Herramientas</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar2">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-tasks"></span> Categorias </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Plásticos</a></li>
+                <li><a href="#">Papelería</a></li>
+                <li><a href="#"></a></li>
+              </ul>
+            </li>
+            <li>
+                <%= link_to providers_path do %>
+                    <span class="glyphicon glyphicon-briefcase"></span>
+                    Mis proveedores
+                <%end%>
+            </li>
+            <li>
+                <%= link_to providers_path do %>
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                    Pedidos
+                <%end%>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+                <%= link_to providers_path do %>
+                    <span class="glyphicon glyphicon-envelope"></span>
+                <%end%>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>

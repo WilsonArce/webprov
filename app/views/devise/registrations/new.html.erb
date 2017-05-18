@@ -1,0 +1,52 @@
+<div class="container">
+  <h2>Crear cuenta</h2>
+  <div class="row">
+    <div class="col-md-5 col-centered" align="left" style="font-size: 1.1em;">
+    <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field">
+        <%= f.text_field :nombre, autofocus: true, label: "Nombre" %>
+      </div>
+
+      <div class="field">
+        <%= f.text_field :identificacion, autofocus: true, label: "CC ó Nit" %>
+      </div>
+
+      <div class="field">
+        <%= f.select :tipo, ["Cliente", "Proveedor"], autofocus: true, disabled: false, required: true, label: "Tipo de usuario"%>
+      </div>
+
+      <div class="field">
+        <%= f.text_field :telefono, autofocus: true, label: "Teléfono" %>
+      </div>
+
+    </div>
+    <div class="col-md-5 col-centered" align="left" style="font-size: 1.1em;">
+
+      <div class="field">
+        <%= f.text_field :direccion, autofocus: true, label: "Dirección" %>
+      </div>
+
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, label: "Correo electrónico" %>
+      </div>
+
+      <div class="field">
+        <% if @minimum_password_length %>
+        <!--em>(<%= @minimum_password_length %> caracteres mínimo)</em-->
+        <% end %>
+        <%= f.password_field :password, autocomplete: "off", label: "Contraseña (#{@minimum_password_length} caracteres mínimo)" %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password_confirmation, autocomplete: "off", label: "Confirmar contraseña" %>
+      </div>
+    </div>
+  </div>
+  <div class="actions" align="center" style="margin-bottom: .5cm">
+  <%= f.submit "Crear cuenta", :class => 'btn btn-md btn-primary' %>
+  <%end%>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+  <div class="row">
+    <div class="col-md-5 col-centered" align="left" style="font-size: 1.1em;">
+    <%= bootstrap_form_for(provider, local: true) do |form| %>
+      <% if provider.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(provider.errors.count, "error") %> prohibited this provider from being saved:</h2>
+
+          <ul>
+          <% provider.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.text_field :nombre, id: :provider_nombre, rerequired: true %>
+      </div>
+
+      <div class="field">
+        <%= form.text_field :categoria, id: :provider_categoria, required: true %>
+      </div>
+
+      <div class="field">
+        <%= form.text_field :email, id: :provider_email, required: true %>
+      </div>
+    </div>
+    <div class="col-md-5 col-centered" align="left" style="font-size: 1.1em;">
+
+      <div class="field">
+        <%= form.text_field :direccion, id: :provider_direccion, required: true %>
+      </div>
+
+      <div class="field">
+        <%= form.text_field :telefono, id: :provider_telefono, required: true %>
+      </div>
+
+      <!--div class="field">
+        <%= form.number_field :calificacion, id: :provider_calificacion, required: true %>
+      </div-->
+      <br>
+      <div class="actions">
+        <%= form.submit "Guardar", :class => 'btn btn-md btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>

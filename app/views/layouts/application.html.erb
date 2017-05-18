@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<%= csrf_meta_tags %>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<html lang="en">
+    <head style="font-family: 'Courgette', cursive;">
+      <%= favicon_link_tag %>
+      <title>Colprov</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome">
+
+      <!--fonts-->
+      <link href="https://fonts.googleapis.com/css?family=Courgette|Josefin+Sans|Orbitron|Questrial|Shrikhand" rel="stylesheet">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar1" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar1">
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                       
+          </button>
+          <a class="navbar-brand" href="/" style="font-size: 35px; font-family: 'Courgette', cursive;">Colprov</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar1">
+          <ul class="nav navbar-nav">
+            <% if user_signed_in? %>
+              <li><a></a></li><li><a></a></li><li><a></a></li>
+            <%end%>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Contactos</a></li>
+            <li><a href="#">Mensajes</a></li>
+          </ul>
+          <% if user_signed_in? %>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+                <%= link_to edit_user_registration_path do %>
+                    <span class="glyphicon glyphicon-user"></span>
+                    <%= current_user.nombre%>
+                <%end%>
+            </li>
+            <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                    <span class="glyphicon glyphicon-log-out"></span> Cerrar sesión
+                <%end%>
+            </li>
+          </ul>
+          <% else %>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+                <%= link_to new_user_registration_path do %>
+                    <span class="glyphicon glyphicon-user"></span> Crear cuenta
+                <%end%>
+            </li>
+            <li>
+                <%= link_to new_user_session_path do %>
+                    <span class="glyphicon glyphicon-log-in"></span> Iniciar sesión
+                <%end%>
+            </li>
+          </ul>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+    <%= render partial: "shared/flash_messages", flash: flash %>
+    <% if user_signed_in? %>
+        <%= render "partials/tools"%>
+    <% end %>
+</head>
+<br>
+<body class="image-responsive" style=" font-family: 'Questrial', sans-serif; font-size: 16px; margin-top: 100px;">
+  <%= yield %>
+</div>
+</body>
+</html>

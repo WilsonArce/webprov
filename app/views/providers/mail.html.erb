@@ -1,0 +1,38 @@
+<div class="container">
+<div class="row">
+    <div class="col-md-5 col-centered" align="left" style="font-size: 1.1em;">
+    <%= bootstrap_form_tag do |form| %>
+
+      <div class="field">
+        <%= form.text_field :remitente, value: @user.nombre + "  ("+@user.email+")", disabled: true %>
+      </div>
+
+      <div class="field">
+        <%= form.text_field :Asunto, required: true%>
+      </div>
+
+      <div class="field">
+        <%= form.text_field :direccion, required: true %>
+      </div>
+
+      <div class="field">
+        <%= form.text_field :telefono, required: true %>
+      </div>
+
+    </div>
+    <div class="col-md-5 col-centered" align="left" style="font-size: 1.1em;">
+
+      <div class="field">
+        <%= form.text_area :pedido, label: "Descripción del pedido", cols: "30", rows: "10", required: true %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Enviar pedido", :class => 'btn btn-md btn-primary' %>
+  </div>
+  <% end %>
+  <br>
+  <%= link_to 'Back', providers_path %>
+ </div>
