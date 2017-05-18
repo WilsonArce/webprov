@@ -14,8 +14,12 @@
       </div>
 
       <div class="field">
-        <%= f.select :tipo, ["Cliente", "Proveedor"], autofocus: true, disabled: false, required: true, label: "Tipo de usuario"%>
+        <%= f.text_field :tipo, autofocus: true, label: "Tipo de usuario", disabled: true, value: "Cliente" %>
       </div>
+
+      <!--div class="field">
+        <%= f.select :tipo, ["Cliente", "Proveedor"], autofocus: true, disabled: true, required: true, label: "Tipo de usuario"%>
+      </div-->
 
       <div class="field">
         <%= f.text_field :telefono, autofocus: true, label: "Teléfono" %>
